@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="card">
+        <h5 class="card-header">Predict your admission chance</h5>
+        <div class="card-body">
+            <form method="POST" action="">
+                {{ form.hidden_tag()}}
+                <div class="form-group">
+                    {{ form.gre_score.label(class="form-control-label")}}
+                    {{ form.gre_score(class="form-control")}}
+                </div>
+                <div class="form-group">
+                    {{ form.toefl_score.label(class="form-control-label")}}
+                    {{ form.toefl_score(class="form-control")}}
+                </div>
+                <div class="form-group">
+                    {{ form.university_rating.label(class="form-control-label")}}
+                    {{ form.university_rating(class="form-control")}}
+                </div>
+                <div class="form-group">
+                    {{ form.sop.label(class="form-control-label")}}
+                    {{ form.sop(class="form-control", placeholder=form.sop.description)}}
+                </div>
+                <div class="form-group">
+                    {{ form.lor.label(class="form-control-label")}}
+                    {{ form.lor(class="form-control", placeholder=form.lor.description)}}
+                </div>
+                <div class="form-group">
+                    {{ form.cgpa.label(class="form-control-label")}}
+                    {{ form.cgpa(class="form-control", placeholder=form.cgpa.description)}}
+                </div>
+                <div class="form-group">
+                    {{ form.research.label(class="form-control-label")}}
+                    {{ form.research(class="form-control")}}
+                </div>
+                <div class="form-group">
+                    {{form.submit(class="btn btn-outline-info")}}
+                </div> 
+            </form>
+        </div>
+        {% if result %}
+            <div class="card-footer text-muted">
+                <center>Your Admission chance is about {{ result }} %</center>
+            </div>
+        {% endif %}
+    </div>
+{% endblock content%}
